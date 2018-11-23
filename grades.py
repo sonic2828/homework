@@ -3,11 +3,11 @@ fizika=[]
 rus=[]
 
 def abiturient(line):
-  res1=line.split(';')
-  math.append(res1[1])
-  fizika.append(res1[2])
-  rus.append(res1[3])
-  print((int(res1[1])+int(res1[2])+int(res1[3]))/3)
+  res=line.split(';')
+  math.append(res[1])
+  fizika.append(res[2])
+  rus.append(res[3])
+  print((int(res[1])+int(res[2])+int(res[3]))/3)
 
 
 def sredbal():
