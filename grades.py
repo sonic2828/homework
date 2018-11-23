@@ -1,7 +1,6 @@
 math=[]
 fizika=[]
 rus=[]
-predmet=[math,fizika,rus]
 
 def abiturient(line):
   res1=line.split(';')
