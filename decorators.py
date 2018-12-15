@@ -11,25 +11,38 @@ def counter(func):
         return res
     wrapper.count = 0
     return wrapper
-    
+
+
+#2
+def html(tag):
+    """
+    Декоратор, добавляющий теги
+    """
+    def decorator(func):
+        def wrap(*args,**kwargs):
+            return '<'+tag+'>'+func(*args,**kwargs)+'</'+tag+'>'
+        return wrap
+    return decorator
+
+@html('i')
+def out():
+    return "hello!"
+
+print (out())
     
     
     
     
 #3
-def makebold(fn):
-    def wrapped():
-        return "<b>" + fn() + "</b>"
-    return wrapped
- 
-def makeitalic(fn):
-    def wrapped():
-        return "<i>" + fn() + "</i>"
-    return wrapped
- 
-@makebold
-@makeitalic
-def hello():
-    return "hello"
- 
-print hello()
+def benchmark(func):
+     """
+     Декоратор, выводящий время, которое заняло
+     выполнение декорируемой функции.
+     """
+     import time
+     def wrapper(*args, **kwargs):
+         t = time.clock()
+         res = func(*args, **kwargs)
+         print(func.__name__, time.clock() - t)
+         return res
+     return wrapper
